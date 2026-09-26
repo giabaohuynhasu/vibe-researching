@@ -61,7 +61,7 @@ Every working session gets one dated entry, copied from `templates/research_log_
 
 ## Step 6 -- The hard rule: never decide a substantive choice silently
 
-When a substantive choice (Step 4's definition) comes up during the work, stop and present it to the person before proceeding, with two or three concrete, genuinely reasonable options and what each implies for the result -- not a single default framed as the obvious answer. Proceed only once they pick, and record the pick as a decision card. This is the one step in this skill that overrides ordinary efficiency: taking longer here is the point, not a cost to be minimized. A researcher who was never shown the choice cannot be said to have made it, however clearly it gets written up afterward.
+When a substantive choice (Step 4's definition) comes up during the work, stop and present it to the person before proceeding, with two or three concrete, genuinely reasonable options and what each implies for the result -- not a single default framed as the obvious answer. A valid response is not limited to picking one of the offered options: running two or more of them and reporting whether the result is sensitive to the choice is often the better answer, and should be named as an available option rather than left for the person to think to ask for. Proceed only once they pick (or ask for the comparison), and record what happened as a decision card either way. This is the one step in this skill that overrides ordinary efficiency: taking longer here is the point, not a cost to be minimized. A researcher who was never shown the choice cannot be said to have made it, however clearly it gets written up afterward.
 
 ## Step 7 -- Close out: README and CITATION.cff
 

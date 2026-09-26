@@ -134,7 +134,7 @@ Conducting complex quantitative modelling alongside generative AI assistants rev
   month        = sep,
   year         = 2026,
   publisher    = {Zenodo},
-  version      = {1.0.0},
+  version      = {2.0.0},
   doi          = {10.5281/zenodo.22978433},
   url          = {https://doi.org/10.5281/zenodo.22978433}
 }
