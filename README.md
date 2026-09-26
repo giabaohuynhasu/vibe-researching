@@ -1,6 +1,10 @@
-# Vibe Researching: A Reproducibility Skill for Humanities & Social-Science Quantitative Analysis
+# Vibe Researching: A Reproducibility Protocol and Agent Skill for Humanities & Social-Science Quantitative Analysis
 
-### Bridging the gap between a humanities research question and a reproducible quantitative analysis
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22978433.svg)](https://doi.org/10.5281/zenodo.22978433)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Datasets-blue)](https://huggingface.co/datasets/giabaohuynhasu/vibe-researching)
+
+### Bridging the gap between a qualitative humanities question and a fully reproducible quantitative analysis
 
 **Author**: Gia Bao Huynh  
 *Independent Researcher, Ho Chi Minh City, Vietnam*  
@@ -8,24 +12,30 @@
 *Research Stance: Challenging the unchecked power, epistemic asymmetries, and monopolized governance of non-state actors across frontier technologies.*  
 *Collaborator: Claude (Anthropic)*
 
-**Repositories**:
+**Persistent Identifiers & Repositories**:
+- 🏛️ **Zenodo DOI**: [10.5281/zenodo.22978433](https://doi.org/10.5281/zenodo.22978433)
 - 🌐 **GitHub**: [https://github.com/giabaohuynhasu/vibe-researching](https://github.com/giabaohuynhasu/vibe-researching)
-- 🌐 **Hugging Face Hub**: [https://huggingface.co/datasets/giabaohuynhasu/vibe-researching](https://huggingface.co/datasets/giabaohuynhasu/vibe-researching)
+- 🤗 **Hugging Face Hub**: [https://huggingface.co/datasets/giabaohuynhasu/vibe-researching](https://huggingface.co/datasets/giabaohuynhasu/vibe-researching)
 
 ---
 
 ## 📌 What This Is
 
-**Vibe Researching** is an agent skill and reproducible-research framework designed for researchers who work in humanities and social-science fields — philosophy, political theory, comparative jurisprudence, area studies — and want to move from a research question to a real quantitative analysis (fitting a model, testing a hypothesis, analyzing a dataset) without losing ownership of the substantive intellectual decisions along the way.
+**Vibe Researching** is an agent skill and reproducible-research framework designed for researchers who work in humanities and social-science fields — philosophy, political theory, comparative jurisprudence, institutional analysis, and area studies — and want to move from a conceptual research question to a real quantitative analysis (fitting a model, testing a hypothesis, analyzing a dataset) without losing ownership of substantive intellectual decisions along the way.
 
-The core problem it solves: AI coding assistants can generate project scaffolding, cleaning scripts, model fits, and plots faster than a non-programmer could build them by hand. But that speed creates a dangerous failure mode — the assistant silently makes the researcher's own judgment calls (what the question really is, what model assumptions mean, what evidence would falsify the claim) while generating the technical work, and the researcher never sees that a decision was made at all.
+### The Problem It Solves
+AI coding assistants can generate project scaffolding, data cleaning pipelines, econometric model calls, and diagnostic plots far faster than a non-programmer could build them by hand. However, that mechanical speed introduces an acute epistemic failure mode: **the AI system silently resolves the researcher's substantive theoretical choices by default** (e.g., implicitly selecting model functional forms, omitting confounders, establishing outlier exclusion cutoffs, or adopting arbitrary significance thresholds) without the researcher ever realizing a consequential decision was made.
 
-**Vibe Researching enforces a small number of mandatory checkpoints** that keep the technical scaffolding work separate from the researcher's substantive decisions:
+### The Mechanism
+**Vibe Researching enforces mandatory epistemic checkpoints** that strictly isolate technical scaffolding generation from the researcher's theoretical sovereignty:
 
-1. **Mandatory research question gate** — `research_question.md` must be collaboratively filled in before any code is written
-2. **Decision cards** — every substantive analytical choice gets a separately readable record
-3. **Timestamped research log** — written during the session, not reconstructed afterward
-4. **The hard rule** — never decide a substantive choice silently; always surface alternatives to the researcher
+1. **Mandatory Research Question Gate (Step 1)**: Collaborative completion of `research_question.md` before any code is written or data is touched.
+2. **Strict Raw-to-Processed Separation (Step 2)**: Immutable `data/raw/` storage with reproducible scripted pipelines.
+3. **Ordered-Script Workflow (Step 3)**: Sequential execution (`01_clean_data.py`, `02_fit_model.py`, etc.) making analytical provenance transparent.
+4. **Substantive Decision Cards (Step 4)**: Explicit documentation of every choice capable of shifting empirical conclusions, detailing alternatives and counterfactuals.
+5. **Contemporaneous Research Log (Step 5)**: Real-time session logging recording actual deliberation, not retrospective rationalization.
+6. **The Anti-Default Hard Rule (Step 6)**: AI systems are strictly prohibited from silently resolving substantive choices; they must pause and surface 2–3 defensible alternatives with empirical trade-offs.
+7. **Living Documentation (Step 7)**: Continuous maintenance of `README.md` and `CITATION.cff`.
 
 ---
 
@@ -33,58 +43,68 @@ The core problem it solves: AI coding assistants can generate project scaffoldin
 
 ```
 vibe-researching/
-├── SKILL.md                          # The agent skill definition (7 steps)
-├── vibe-researching-skill/           # Installable skill package
+├── SKILL.md                          # The core agent skill definition (7 steps)
+├── vibe-researching-skill/           # Installable skill distribution package
 │   ├── SKILL.md                      # Skill instructions (with template references)
-│   └── templates/                    # Blank templates for new projects
-│       ├── research_question.md
-│       ├── decision_card.md
-│       ├── research_log_entry.md
-│       ├── README.md
-│       └── CITATION.cff
-├── demo-project/                     # Complete worked example
-│   ├── research_question.md          # Filled-in research question
+│   └── templates/                    # Blank standardized templates
+│       ├── research_question.md      # Prerequisite question-framing gate
+│       ├── decision_card.md          # Substantive choice record template
+│       ├── research_log_entry.md     # Contemporaneous session log template
+│       ├── README.md                 # Project root template
+│       └── CITATION.cff              # Citation metadata template
+├── demo-project/                     # Complete end-to-end worked demonstration
+│   ├── research_question.md          # Completed research question
 │   ├── analysis/
-│   │   ├── scripts/                  # Numbered pipeline (01–05)
-│   │   └── models/                   # Decision cards
+│   │   ├── scripts/                  # Numbered reproducible pipeline (01–05)
+│   │   │   ├── 01_generate_data.py
+│   │   │   ├── 02_clean_data.py
+│   │   │   ├── 03_fit_model.py
+│   │   │   ├── 04_robustness_check.py
+│   │   │   └── 05_make_figure.py
+│   │   └── models/                   # Formal decision cards
+│   │       └── decision_leverage_points.md
 │   ├── data/
-│   │   ├── raw/                      # Untouched original data
-│   │   └── processed/               # Cleaned data (from scripts only)
-│   ├── figures/                      # Generated plots
-│   ├── research_log/log.md           # Session-by-session record
+│   │   ├── raw/                      # Untouched raw observation data
+│   │   └── processed/                # Pipeline-generated clean data
+│   ├── figures/                      # High-resolution publication plots
+│   │   └── income_lifespan_fit.png
+│   ├── research_log/                 # Real-time session documentation
+│   │   └── log.md
 │   ├── README.md
 │   └── CITATION.cff
-└── LICENSE
+├── CITATION.cff                      # Master citation metadata
+├── LICENSE                           # MIT License
+└── README.md                         # Project documentation
 ```
 
 ---
 
 ## 🔬 The 7-Step Protocol
 
-| Step | Name | Purpose |
-|------|------|---------|
-| 0 | **Recognize** | Trigger only when a non-technical researcher brings a research question without an existing codebase |
-| 1 | **Research Question Gate** | Collaboratively fill `research_question.md` before any code — question, claim, model rationale, assumptions, falsification, reproducibility |
-| 2 | **Scaffold** | Create project structure with `raw/` → `processed/` data boundary |
-| 3 | **Numbered Scripts** | `01_clean.py`, `02_fit.py`, `03_plot.py` — the analysis story is readable from filenames alone |
-| 4 | **Decision Cards** | Every choice that could change the result gets a separately readable record |
-| 5 | **Research Log** | Dated entries written *during* the session, not reconstructed afterward |
-| 6 | **The Hard Rule** | Never decide a substantive choice silently — surface 2–3 alternatives with implications |
-| 7 | **Living README** | Keep README and CITATION.cff current at every natural stopping point |
+| Step | Phase | Function & Enforcement |
+|:---:|:---|:---|
+| **0** | **Recognize** | Activates when a researcher from a qualitative/humanities discipline initiates a project without existing codebase. |
+| **1** | **Research Question Gate** | Halts technical execution until `research_question.md` is agreed upon: defining Question, Theoretical Claim, Model Justification, Identifying Assumptions, Falsification Criteria, and Reproducibility Specifications. |
+| **2** | **Scaffold Project** | Establishes standard directory layout. Enforces strict write-protection on `data/raw/`. |
+| **3** | **Numbered Pipeline** | Enforces chronological script naming (`01_`, `02_`, `03_`), narrating the complete analytical trajectory. |
+| **4** | **Decision Cards** | Requires a stand-alone decision record in `analysis/models/` for any substantive analytical fork. |
+| **5** | **Research Log** | Records real-time decisions, rejected alternatives, and open questions during the working session. |
+| **6** | **The Hard Rule** | Mandatory pause on any fork that could alter conclusions. AI must present options with trade-offs; silent picking is forbidden. |
+| **7** | **Living Closeout** | Synchronizes status, citations, and outputs into `README.md` and `CITATION.cff` at every natural checkpoint. |
 
 ---
 
 ## 🎯 Demo Walkthrough
 
-The `demo-project/` directory contains a complete worked example using synthetic income–life expectancy data:
+The repository includes a complete empirical demonstration (`demo-project/`) analyzing household income vs. life expectancy:
 
-- **Research question**: Does household income predict life expectancy?
-- **Model**: OLS regression of life expectancy on log(income)
-- **Key decision surfaced**: How to handle 12 high-leverage points flagged by influence diagnostics
-- **Researcher's choice**: Run all three scenarios (as-is, HC3 robust SEs, leverage-excluded) and report the spread
-- **Finding**: Coefficient stable across all three (2.696, 2.696, 2.624 — 2.7% spread)
+- **Empirical Question**: Does household income predict longevity, and what is the magnitude of association?
+- **Model**: OLS regression of life expectancy on log-transformed household income.
+- **Surfaced Decision (Step 6)**: Influence diagnostics identified 12 high-leverage observations at extreme income brackets.
+- **Deliberation & Resolution**: Rather than arbitrarily dropping points or silently applying robust errors, the researcher chose a tripartite comparison (baseline OLS, HC3 heteroskedasticity-robust SEs, and leverage-excluded OLS).
+- **Result**: Demonstrated empirical stability across all three specifications (slopes: 2.696 vs. 2.696 vs. 2.624; <2.7% divergence), establishing robust conclusions without obscured data deletion.
 
-Run the demo:
+### Executing the Demonstration
 ```bash
 cd demo-project
 pip install pandas numpy statsmodels matplotlib
@@ -97,11 +117,11 @@ python analysis/scripts/05_make_figure.py
 
 ---
 
-## 🏗️ Intellectual Context
+## 🏛️ Intellectual Context & Authorship
 
-This skill emerged from the author's own experience conducting the *Floor That Does Not Rise* research program — a queueing-theoretic analysis of technological inequality across housing, AI, biotech, and cybersecurity — as a non-programmer political theorist working with AI coding assistants. The realization that an assistant could silently choose a model specification, a variable transformation, or an outlier threshold while appearing to simply "help with the code" led to the explicit separation of technical scaffolding from substantive judgment that this skill enforces.
+This framework was developed during the empirical investigations of *The Floor That Does Not Rise* research program — an interdisciplinary queueing-theoretic critique of technological acceleration across housing markets, synthetic AI capabilities, longevity biotechnology, and national-scale cybersecurity.
 
-The framework operationalizes the principle that **speed of code generation is not the bottleneck — transparency of analytical choices is**.
+Conducting complex quantitative modelling alongside generative AI assistants revealed that speed of synthesis often masks epistemic capture: technical co-pilots routinely make foundational theoretical compromises under the guise of syntax completion. **Vibe Researching** codifies a protocol of **epistemic sovereignty**, ensuring non-programmer scholars retain total ownership and transparent accountability over their scientific claims.
 
 ---
 
@@ -109,11 +129,14 @@ The framework operationalizes the principle that **speed of code generation is n
 
 ```bibtex
 @software{huynh2026viberesearching,
-  author    = {Gia Bao Huynh},
-  title     = {Vibe Researching: A Reproducibility Skill for Humanities and Social-Science Quantitative Analysis},
-  year      = {2026},
-  url       = {https://github.com/giabaohuynhasu/vibe-researching},
-  note      = {Agent skill and reproducible-research framework}
+  author       = {Huynh, Gia Bao},
+  title        = {Vibe Researching: A Reproducibility Protocol and Agent Skill for Humanities and Social-Science Quantitative Analysis},
+  month        = sep,
+  year         = 2026,
+  publisher    = {Zenodo},
+  version      = {1.0.0},
+  doi          = {10.5281/zenodo.22978433},
+  url          = {https://doi.org/10.5281/zenodo.22978433}
 }
 ```
 
@@ -121,4 +144,4 @@ The framework operationalizes the principle that **speed of code generation is n
 
 ## ⚖️ License
 
-This project is licensed under the [MIT License](LICENSE).
+Distributed under the [MIT License](LICENSE).

@@ -1,13 +1,15 @@
 cff-version: 1.2.0
 message: "If you use this work, please cite it as below."
-title: "Vibe Researching: A Reproducibility Skill for Humanities and Social-Science Quantitative Analysis"
+title: "Vibe Researching: A Reproducibility Protocol and Agent Skill for Humanities and Social-Science Quantitative Analysis"
 authors:
   - family-names: "Huynh"
     given-names: "Gia Bao"
     orcid: "https://orcid.org/0009-0008-2372-5852"
 version: 1.0.0
+doi: "10.5281/zenodo.22978433"
 date-released: 2026-09-26
 repository-code: "https://github.com/giabaohuynhasu/vibe-researching"
+url: "https://doi.org/10.5281/zenodo.22978433"
 license: "MIT"
 keywords:
   - reproducible research
@@ -16,3 +18,4 @@ keywords:
   - quantitative analysis
   - agent skill
   - research methodology
+  - epistemic sovereignty
