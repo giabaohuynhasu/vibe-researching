@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+title: "[Project title]"
+authors:
+  - family-names: "[Last name]"
+    given-names: "[First name]"
+    orcid: "https://orcid.org/0000-0000-0000-0000"
+version: 0.1.0
+date-released: YYYY-MM-DD
+repository-code: "[repository URL, if any]"
+license: "[license identifier, e.g. MIT, CC-BY-4.0]"
