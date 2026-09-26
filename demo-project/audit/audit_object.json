@@ -1,0 +1,30 @@
+{
+  "objects": [
+    {
+      "id": "demo-project",
+      "title": "Does household income predict life expectancy in a population, and how large is the association?",
+      "falsification_conditions": [
+        {
+          "id": "demo-project-FC1",
+          "text": "The claim fails if the fitted slope on log-income is not statistically distinguishable from zero, or if it is negative, in this dataset.",
+          "references_external_source": true,
+          "source_note": "Extracted from research_question.md (Falsification section). External anchors: raw_data_files: synthetic_income_lifespan.csv",
+          "confidence": "HIGH",
+          "external_anchor": ""
+        }
+      ],
+      "revisions": [
+        {
+          "delta_type": "extended",
+          "trigger": "Session 2026-09-26: ",
+          "note": " **What was tried:** Generated synthetic income/life-expectancy data (400 obs), cleaned it (no drops needed), fit OLS of life expectancy on log(income) as specified in `research_question.md`.  **What ",
+          "source_note": "Parsed from log.md date 2026-09-26",
+          "confidence": "HIGH",
+          "external_anchor": ""
+        }
+      ],
+      "self_referential_audit_present": false,
+      "audit_history": []
+    }
+  ]
+}

@@ -32,6 +32,9 @@ project/
 ├── README.md
 ├── research_question.md
 ├── hypotheses.md
+├── audit/
+│   ├── third_order_audit_report.md
+│   └── audit_object.json
 ├── data/
 │   ├── raw/
 │   └── processed/
@@ -66,3 +69,29 @@ When a substantive choice (Step 4's definition) comes up during the work, stop a
 ## Step 7 -- Close out: README and CITATION.cff
 
 At natural stopping points -- not only at the very end -- update the project's top-level `README.md` to reflect current status (what question, what data, what's done, what's open), and keep `CITATION.cff` current with the project's title, author, and date so the work is citable at whatever stage it is in. Treat both as living documents updated as part of the work, not paperwork left for the end.
+
+## Step 8 -- The Third-Order Epistemic Audit (Huynh 2026)
+
+At project milestones and prior to publication, run the Third-Order Audit engine (`audit/vibe_audit.py`) on the project directory. The audit provides automated verification across three epistemic levels defined in Huynh (2026), *The Third-Order Audit*:
+
+1. **Order 1 (Karl Popper) -- Object-Level Falsifiability**:
+   - Confirms that an explicit, testable falsification condition ($F_1 \dots F_k$) is documented in `research_question.md`.
+   - Requires concrete empirical conditions under which the core claim would fail (not placeholders or tautologies).
+
+2. **Order 2 (Robert K. Merton) -- External Grounding & Escape Route Closure**:
+   - Audits whether falsification conditions point outward to independent external reality (records in `data/raw/`, documented citations in `references/`, and external benchmarks), rather than self-referential model-internal vocabulary.
+   - Verifies that analytical escape routes are closed by checking that decision cards in `analysis/models/` explicitly consider and record counterfactual alternatives.
+   - Monitors for *Third Break boundary risk* (rejecting claims that rely on model internal state queries without empirical grounding).
+
+3. **Order 3 (Imre Lakatos) -- Programme-Level Trajectory (Constraint Ratio)**:
+   - Evaluates the multi-session research log (`research_log/log.md`) across time.
+   - Measures the Lakatosian Constraint Ratio:
+     $$\text{Constraint Ratio} = \frac{\text{Narrowed} + \text{Withdrawn}}{\text{Total Revisions}}$$
+   - Classifies the research programme as **Progressive** ($\text{Ratio} > 0.0$, narrowing claim scope or withdrawing refuted claims under data tension) or flags **Degenerating Risk** (repeatedly reaffirming claims unchanged while ignoring contradictory empirical evidence).
+
+Run the audit CLI:
+```bash
+python audit/vibe_audit.py [path_to_project]
+```
+The audit generates `audit/third_order_audit_report.md` (human-readable report using `templates/third_order_audit_report.md`) and `audit/audit_object.json` (machine-readable sandbox object).
+
